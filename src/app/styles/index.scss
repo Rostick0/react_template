@@ -1,0 +1,39 @@
+@import "./reset";
+@import "./root";
+@import "./ui";
+
+.wrapper {
+  background-color: var(--fourth-color);
+  color: var(--third-color);
+  display: flex;
+  flex-direction: column;
+  font-family: "Gotham Pro", sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+
+  @media (max-width: 920px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--first-color) #dedede;
+}
+
+@media (min-width: 1024px) {
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #dedede;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--first-color);
+    border-radius: 8px;
+  }
+}

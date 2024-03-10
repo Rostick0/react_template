@@ -1,0 +1,31 @@
+:root {
+  --first-color: #dd1405;
+  --second-color: #ff9b94;
+  --third-color: #1e1e1e;
+  --fourth-color: #fafafa;
+  --fifth-color: #6f6f6f;
+
+  --indentation-ver-big: 60px;
+  --indentation-big: 40px;
+  --indentation: 28px;
+  --indentation-small: 20px;
+
+  ._dark {
+    --third-color: #fafafa;
+    --fourth-color: #1e1e1e;
+  }
+
+  @media (max-width: 920px) {
+    --indentation-ver-big: 52px;
+    --indentation-big: 32px;
+    --indentation: 24px;
+    --indentation-small: 16px;
+  }
+
+  @media (max-width: 576px) {
+    --indentation-ver-big: 40px;
+    --indentation-big: 28px;
+    --indentation: 20px;
+    --indentation-small: 12px;
+  }
+}
