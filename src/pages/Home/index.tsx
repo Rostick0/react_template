@@ -6,7 +6,7 @@ import Item from "../../components/Item";
 interface HomeProps {}
 
 const Home: FC<HomeProps> = () => {
-  const { filters, updateCurrentFilterValue, urlSerachParams } = useFilter({
+  const { filters, updateCurrentFilterValue, urlSerachParams, resetFilterValues } = useFilter({
     initialFilters: {
       // "filterLIKE[name]": "123",
       // name: "123",
@@ -33,9 +33,30 @@ const Home: FC<HomeProps> = () => {
         <br />
         {/* <pre>{JSON.stringify(filters)}</pre> */}
       </div>
-      <input
-        onChange={(e) => updateCurrentFilterValue("title", e.target.value)}
-      />
+      <form style={{ display: "flex", gridGap: "20px" }}>
+        <input
+          className="input"
+          placeholder="title"
+          onChange={(e) => updateCurrentFilterValue("title", e.target.value)}
+        />
+        <input
+          className="input"
+          placeholder="userId"
+          onChange={(e) => updateCurrentFilterValue("userId", e.target.value)}
+        />
+        <label>
+          <input
+            style={{ appearance: "checkbox" }}
+            type="checkbox"
+            onChange={(e) =>
+              updateCurrentFilterValue("completed", e.target.checked)
+            }
+          />
+          <span>completed</span>
+        </label>
+        <button onClick={resetFilterValues} type="reset">Сброс</button>
+      </form>
+
       <pre>{JSON.stringify(todos, null, 2)}</pre>
     </div>
   );

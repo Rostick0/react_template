@@ -55,6 +55,11 @@ export default ({
     if (withQueryParams) setSearchParams(updatedFilterValue);
   };
 
+  const resetFilterValues = (): void => {
+    setFilters({});
+  };
+
+
   const urlSerachParams = useMemo(
     (): string =>
       filters ? "?" + new URLSearchParams(filters).toString() : "",
@@ -64,6 +69,7 @@ export default ({
   return {
     filters,
     updateCurrentFilterValue,
+    resetFilterValues,
     urlSerachParams,
   };
 };
