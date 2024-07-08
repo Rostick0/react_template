@@ -1,0 +1,19 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+
+  &__title {
+    color: var(--seventh-color);
+    font-size: 12px;
+  }
+
+  &__error {
+    color: var(--ninth-color);
+    font-size: 12px;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

@@ -57,8 +57,9 @@ export default ({
 
   const resetFilterValues = (): void => {
     setFilters({});
-  };
 
+    if (withInitQueryParams) setSearchParams();
+  };
 
   const urlSerachParams = useMemo(
     (): string =>

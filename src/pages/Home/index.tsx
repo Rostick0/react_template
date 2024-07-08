@@ -2,16 +2,24 @@ import React, { FC, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import useFilter from "../../app/hook/useFilter";
 import Item from "../../components/Item";
+import { useForm } from "react-hook-form";
 
 interface HomeProps {}
 
 const Home: FC<HomeProps> = () => {
-  const { filters, updateCurrentFilterValue, urlSerachParams, resetFilterValues } = useFilter({
+  const {
+    filters,
+    updateCurrentFilterValue,
+    urlSerachParams,
+    resetFilterValues,
+  } = useFilter({
     initialFilters: {
       // "filterLIKE[name]": "123",
       // name: "123",
     },
   });
+
+  const { register } = useForm();
 
   const [todos, setTodos] = useState([]);
 
@@ -27,7 +35,7 @@ const Home: FC<HomeProps> = () => {
   }, [filters]);
 
   return (
-    <div className={styles.home}>
+    <div className={styles.Home}>
       <div className="">
         {/* <pre>{JSON.parse(urlSerachParams)}</pre> */}
         <br />
@@ -44,6 +52,11 @@ const Home: FC<HomeProps> = () => {
           placeholder="userId"
           onChange={(e) => updateCurrentFilterValue("userId", e.target.value)}
         />
+        <input
+          className="input"
+          placeholder="sort"
+          onChange={(e) => updateCurrentFilterValue("sort", e.target.value)}
+        />
         <label>
           <input
             style={{ appearance: "checkbox" }}
@@ -54,7 +67,9 @@ const Home: FC<HomeProps> = () => {
           />
           <span>completed</span>
         </label>
-        <button onClick={resetFilterValues} type="reset">Сброс</button>
+        <button onClick={resetFilterValues} type="reset">
+          Сброс
+        </button>
       </form>
 
       <pre>{JSON.stringify(todos, null, 2)}</pre>
